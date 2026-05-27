@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useNotification } from '../context/NotificationContext';
 import { NavLink } from 'react-router-dom';
 
-/* ─── Floating orb background (reused) ───────────────── */
+/* ─── Floating orb background (warm orange/red tones) ── */
 const OrbBg = () => (
   <div aria-hidden style={{ position:'absolute', inset:0, overflow:'hidden', pointerEvents:'none', zIndex:0 }}>
     <motion.div
@@ -13,7 +13,7 @@ const OrbBg = () => (
         position:'absolute', top:'-10%', right:'-5%',
         width:'clamp(280px,40vw,500px)', height:'clamp(280px,40vw,500px)',
         borderRadius:'50%',
-        background:'radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%)',
+        background:'radial-gradient(circle, rgba(249,115,22,0.12) 0%, transparent 70%)',
         filter:'blur(55px)',
       }}
     />
@@ -24,7 +24,7 @@ const OrbBg = () => (
         position:'absolute', bottom:'-5%', left:'-8%',
         width:'clamp(250px,35vw,450px)', height:'clamp(250px,35vw,450px)',
         borderRadius:'50%',
-        background:'radial-gradient(circle, rgba(139,92,246,0.1) 0%, transparent 70%)',
+        background:'radial-gradient(circle, rgba(239,68,68,0.1) 0%, transparent 70%)',
         filter:'blur(55px)',
       }}
     />
@@ -35,14 +35,14 @@ const OrbBg = () => (
         position:'absolute', top:'50%', left:'30%',
         width:'clamp(200px,30vw,350px)', height:'clamp(200px,30vw,350px)',
         borderRadius:'50%',
-        background:'radial-gradient(circle, rgba(6,182,212,0.07) 0%, transparent 70%)',
+        background:'radial-gradient(circle, rgba(245,158,11,0.07) 0%, transparent 70%)',
         filter:'blur(50px)',
       }}
     />
   </div>
 );
 
-/* ─── Contact info items ─────────────────────────────── */
+/* ─── Contact info items (updated with real data) ────── */
 const contactInfo = [
   {
     icon: (
@@ -52,8 +52,8 @@ const contactInfo = [
       </svg>
     ),
     title: "Visit us",
-    detail: "123 Innovation Drive, San Francisco, CA 94103",
-    accent: "#6366f1",
+    detail: "UG-13, Radha Krishna Complex, Transport Nagar Main Rd, Opp. Allahabad Bank, Bhanwar Kuan, Indore, MP",
+    accent: "#f97316", // orange
   },
   {
     icon: (
@@ -62,8 +62,8 @@ const contactInfo = [
       </svg>
     ),
     title: "Call us",
-    detail: "+1 (555) 342-7890",
-    accent: "#8b5cf6",
+    detail: "0731-4032681",
+    accent: "#ef4444", // red
   },
   {
     icon: (
@@ -73,8 +73,8 @@ const contactInfo = [
       </svg>
     ),
     title: "Email us",
-    detail: "hello@softspectrum.com",
-    accent: "#06b6d4",
+    detail: "hr@softspectrum.net",
+    accent: "#f59e0b", // amber
   },
 ];
 
@@ -115,7 +115,6 @@ const Contact = () => {
   return (
     <div style={{ fontFamily: "'DM Sans', system-ui, sans-serif", background: '#fafafa', overflowX: 'hidden' }}>
       
-      {/* Google Font + responsive overrides */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Serif+Display:ital@0;1&display=swap');
 
@@ -123,7 +122,7 @@ const Contact = () => {
           transition: all 0.2s ease;
         }
         .contact-input:focus {
-          box-shadow: 0 0 0 3px rgba(99,102,241,0.15);
+          box-shadow: 0 0 0 3px rgba(249,115,22,0.15);
         }
 
         .info-card {
@@ -140,7 +139,7 @@ const Contact = () => {
         }
       `}</style>
 
-      {/* ══ HERO SECTION ════════════════════════════════ */}
+      {/* ══ HERO SECTION ───────────────────────────────── */}
       <section
         ref={heroRef}
         style={{
@@ -167,15 +166,15 @@ const Contact = () => {
               display: 'inline-flex',
               alignItems: 'center',
               gap: '8px',
-              background: 'rgba(99,102,241,0.08)',
-              border: '1px solid rgba(99,102,241,0.2)',
+              background: 'rgba(249,115,22,0.08)',
+              border: '1px solid rgba(249,115,22,0.2)',
               borderRadius: '100px',
               padding: '6px 18px',
               marginBottom: '1.8rem',
             }}
           >
             <span style={{ fontSize: '1rem' }}>💬</span>
-            <span style={{ color: '#6366f1', fontSize: '0.8rem', fontWeight: 600, letterSpacing: '0.03em' }}>Start a conversation</span>
+            <span style={{ color: '#f97316', fontSize: '0.8rem', fontWeight: 600, letterSpacing: '0.03em' }}>SOFTSPECTRUM TECHNOLOGY</span>
           </motion.div>
 
           <motion.h1
@@ -192,14 +191,7 @@ const Contact = () => {
               marginBottom: '1.2rem',
             }}
           >
-            Let's bring your <br />
-            <span style={{
-              background: 'linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-            }}>
-              vision to life
-            </span>
+            "It's not how many ideas you have,<br /> it's how many you implement."
           </motion.h1>
 
           <motion.p
@@ -214,12 +206,12 @@ const Contact = () => {
               lineHeight: 1.65,
             }}
           >
-            Reach out and we'll get back within 24 hours. Let's create something extraordinary together.
+            Reach out and we'll get back within 24 hours. Let's turn your ideas into reality.
           </motion.p>
         </motion.div>
       </section>
 
-      {/* ══ FORM + CONTACT INFO SECTION ═══════════════════ */}
+      {/* ══ FORM + CONTACT INFO ────────────────────────── */}
       <section style={{ padding: 'clamp(2rem, 5vw, 3rem) clamp(1.25rem, 5vw, 2.5rem)', maxWidth: '1200px', margin: '0 auto' }}>
         <div className="contact-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem' }}>
           
@@ -250,160 +242,81 @@ const Contact = () => {
             </p>
 
             <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-              {/* Name field */}
               <div>
-                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, marginBottom: '0.5rem', color: '#374151' }}>
-                  Full name *
-                </label>
+                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, marginBottom: '0.5rem', color: '#374151' }}>Full name *</label>
                 <motion.input
-                  animate={{ borderColor: focusedField === 'name' ? '#6366f1' : '#e5e7eb' }}
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  onFocus={() => setFocusedField('name')}
-                  onBlur={() => setFocusedField(null)}
+                  animate={{ borderColor: focusedField === 'name' ? '#f97316' : '#e5e7eb' }}
+                  type="text" name="name" value={formData.name} onChange={handleChange}
+                  onFocus={() => setFocusedField('name')} onBlur={() => setFocusedField(null)}
                   className="contact-input"
                   style={{
-                    width: '100%',
-                    padding: '14px 18px',
-                    borderRadius: '16px',
-                    border: '1.5px solid',
-                    borderColor: focusedField === 'name' ? '#6366f1' : '#e5e7eb',
-                    outline: 'none',
-                    fontSize: '1rem',
-                    fontFamily: 'inherit',
-                    transition: 'all 0.2s',
+                    width: '100%', padding: '14px 18px', borderRadius: '16px', border: '1.5px solid',
+                    borderColor: focusedField === 'name' ? '#f97316' : '#e5e7eb',
+                    outline: 'none', fontSize: '1rem', fontFamily: 'inherit', transition: 'all 0.2s',
                   }}
                 />
               </div>
-
-              {/* Email field */}
               <div>
-                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, marginBottom: '0.5rem', color: '#374151' }}>
-                  Email address *
-                </label>
+                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, marginBottom: '0.5rem', color: '#374151' }}>Email address *</label>
                 <motion.input
-                  animate={{ borderColor: focusedField === 'email' ? '#6366f1' : '#e5e7eb' }}
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  onFocus={() => setFocusedField('email')}
-                  onBlur={() => setFocusedField(null)}
-                  className="contact-input"
+                  animate={{ borderColor: focusedField === 'email' ? '#f97316' : '#e5e7eb' }}
+                  type="email" name="email" value={formData.email} onChange={handleChange}
+                  onFocus={() => setFocusedField('email')} onBlur={() => setFocusedField(null)}
                   style={{
-                    width: '100%',
-                    padding: '14px 18px',
-                    borderRadius: '16px',
-                    border: '1.5px solid',
-                    borderColor: focusedField === 'email' ? '#6366f1' : '#e5e7eb',
-                    outline: 'none',
-                    fontSize: '1rem',
-                    fontFamily: 'inherit',
+                    width: '100%', padding: '14px 18px', borderRadius: '16px', border: '1.5px solid',
+                    borderColor: focusedField === 'email' ? '#f97316' : '#e5e7eb',
+                    outline: 'none', fontSize: '1rem', fontFamily: 'inherit',
                   }}
                 />
               </div>
-
-              {/* Message field */}
               <div>
-                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, marginBottom: '0.5rem', color: '#374151' }}>
-                  Message *
-                </label>
+                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600, marginBottom: '0.5rem', color: '#374151' }}>Message *</label>
                 <motion.textarea
-                  animate={{ borderColor: focusedField === 'message' ? '#6366f1' : '#e5e7eb' }}
-                  name="message"
-                  rows="5"
-                  value={formData.message}
-                  onChange={handleChange}
-                  onFocus={() => setFocusedField('message')}
-                  onBlur={() => setFocusedField(null)}
+                  animate={{ borderColor: focusedField === 'message' ? '#f97316' : '#e5e7eb' }}
+                  name="message" rows="5" value={formData.message} onChange={handleChange}
+                  onFocus={() => setFocusedField('message')} onBlur={() => setFocusedField(null)}
                   style={{
-                    width: '100%',
-                    padding: '14px 18px',
-                    borderRadius: '16px',
-                    border: '1.5px solid',
-                    borderColor: focusedField === 'message' ? '#6366f1' : '#e5e7eb',
-                    outline: 'none',
-                    fontSize: '1rem',
-                    fontFamily: 'inherit',
-                    resize: 'vertical',
+                    width: '100%', padding: '14px 18px', borderRadius: '16px', border: '1.5px solid',
+                    borderColor: focusedField === 'message' ? '#f97316' : '#e5e7eb',
+                    outline: 'none', fontSize: '1rem', fontFamily: 'inherit', resize: 'vertical',
                   }}
                 />
               </div>
-
               <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                type="submit"
-                disabled={isSubmitting}
+                whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
+                type="submit" disabled={isSubmitting}
                 style={{
-                  background: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
-                  color: '#fff',
-                  border: 'none',
-                  padding: '14px 24px',
-                  borderRadius: '100px',
-                  fontSize: '1rem',
-                  fontWeight: 600,
-                  cursor: 'pointer',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: '10px',
-                  transition: 'all 0.2s',
-                  opacity: isSubmitting ? 0.7 : 1,
+                  background: 'linear-gradient(135deg, #f97316, #ef4444)',
+                  color: '#fff', border: 'none', padding: '14px 24px', borderRadius: '100px',
+                  fontSize: '1rem', fontWeight: 600, cursor: 'pointer',
+                  display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '10px',
+                  transition: 'all 0.2s', opacity: isSubmitting ? 0.7 : 1,
                 }}
               >
-                {isSubmitting ? (
-                  'Sending...'
-                ) : (
-                  <>
-                    Send Message
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                      <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                  </>
-                )}
+                {isSubmitting ? 'Sending...' : <>Send Message <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></>}
               </motion.button>
             </form>
           </motion.div>
 
-          {/* Contact Info Cards Column */}
+          {/* Contact Info Cards */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}
             style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}
           >
             {contactInfo.map((info, idx) => (
-              <motion.div
-                key={idx}
-                className="info-card"
-                whileHover={{ y: -4 }}
+              <motion.div key={idx} className="info-card" whileHover={{ y: -4 }}
                 style={{
-                  background: '#fff',
-                  borderRadius: '24px',
-                  padding: '1.5rem',
-                  border: '1px solid #f0f0f0',
-                  boxShadow: '0 2px 12px rgba(0,0,0,0.03)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '1.2rem',
+                  background: '#fff', borderRadius: '24px', padding: '1.5rem',
+                  border: '1px solid #f0f0f0', boxShadow: '0 2px 12px rgba(0,0,0,0.03)',
+                  display: 'flex', alignItems: 'center', gap: '1.2rem',
                 }}
               >
                 <div style={{
-                  width: '56px',
-                  height: '56px',
-                  borderRadius: '18px',
+                  width: '56px', height: '56px', borderRadius: '18px',
                   background: `linear-gradient(135deg, ${info.accent}10, ${info.accent}05)`,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: info.accent,
-                }}>
-                  {info.icon}
-                </div>
+                  display: 'flex', alignItems: 'center', justifyContent: 'center', color: info.accent,
+                }}>{info.icon}</div>
                 <div>
                   <h3 style={{ fontWeight: 700, marginBottom: '0.25rem', color: '#111827' }}>{info.title}</h3>
                   <p style={{ color: '#6b7280' }}>{info.detail}</p>
@@ -411,69 +324,43 @@ const Contact = () => {
               </motion.div>
             ))}
 
-            {/* Decorative map placeholder */}
+            {/* Map placeholder - updated to Indore */}
             <div style={{
-              marginTop: '1rem',
-              borderRadius: '24px',
-              overflow: 'hidden',
-              border: '1px solid #f0f0f0',
-              background: '#f9f9ff',
-              padding: '1rem',
-              textAlign: 'center',
+              marginTop: '1rem', borderRadius: '24px', overflow: 'hidden', border: '1px solid #f0f0f0',
+              background: '#f9f9ff', padding: '1rem', textAlign: 'center',
             }}>
-              <svg width="100%" height="120" viewBox="0 0 400 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 60 Q100 20 200 60 T400 60" stroke="#6366f1" strokeWidth="2" strokeDasharray="4 4" fill="none"/>
-                <circle cx="200" cy="60" r="6" fill="#6366f1" />
-                <circle cx="200" cy="60" r="12" stroke="#6366f1" strokeWidth="1.5" fill="rgba(99,102,241,0.2)" />
-                <text x="200" y="90" textAnchor="middle" fill="#6366f1" fontSize="10" fontWeight="500">San Francisco HQ</text>
+              <svg width="100%" height="120" viewBox="0 0 400 120" fill="none">
+                <path d="M0 60 Q100 20 200 60 T400 60" stroke="#f97316" strokeWidth="2" strokeDasharray="4 4" fill="none"/>
+                <circle cx="200" cy="60" r="6" fill="#f97316" />
+                <circle cx="200" cy="60" r="12" stroke="#f97316" strokeWidth="1.5" fill="rgba(249,115,22,0.2)" />
+                <text x="200" y="90" textAnchor="middle" fill="#f97316" fontSize="10" fontWeight="500">Indore, MP</text>
               </svg>
-              <p style={{ fontSize: '0.7rem', color: '#9ca3af', marginTop: '8px' }}>Come say hi — coffee's on us ☕</p>
+              <p style={{ fontSize: '0.7rem', color: '#9ca3af', marginTop: '8px' }}>Visit our office — let's build something great 🚀</p>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* ══ FAQ SECTION ════════════════════════════════════ */}
+      {/* ══ FAQ SECTION ───────────────────────────────── */}
       <section style={{ padding: 'clamp(3rem, 7vw, 5rem) clamp(1.25rem, 5vw, 2.5rem)', background: '#fff', marginTop: '2rem' }}>
         <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            style={{ textAlign: 'center', marginBottom: '3rem' }}
-          >
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            style={{ textAlign: 'center', marginBottom: '3rem' }}>
             <div style={{
-              display: 'inline-flex', alignItems: 'center', gap: '6px',
-              padding: '5px 14px', borderRadius: '100px',
-              background: 'rgba(99,102,241,0.08)', border: '1px solid rgba(99,102,241,0.15)',
-              marginBottom: '1rem',
+              display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '5px 14px', borderRadius: '100px',
+              background: 'rgba(249,115,22,0.08)', border: '1px solid rgba(249,115,22,0.15)', marginBottom: '1rem',
             }}>
-              <span style={{ color: '#6366f1', fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.08em' }}>FAQ</span>
+              <span style={{ color: '#f97316', fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.08em' }}>FAQ</span>
             </div>
-            <h2 style={{
-              fontFamily: "'DM Serif Display', serif",
-              fontSize: 'clamp(1.8rem, 3.8vw, 2.6rem)',
-              color: '#0f0f13',
-            }}>
+            <h2 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 'clamp(1.8rem, 3.8vw, 2.6rem)', color: '#0f0f13' }}>
               Common questions
             </h2>
           </motion.div>
-
           <div className="faq-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
             {faqs.map((faq, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                viewport={{ once: true }}
-                style={{
-                  background: '#fafcff',
-                  borderRadius: '20px',
-                  padding: '1.5rem',
-                  border: '1px solid #f0f0f0',
-                }}
-              >
+              <motion.div key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }} viewport={{ once: true }}
+                style={{ background: '#fafcff', borderRadius: '20px', padding: '1.5rem', border: '1px solid #f0f0f0' }}>
                 <div style={{ fontWeight: 700, marginBottom: '0.75rem', color: '#111827', fontSize: '1.05rem' }}>{faq.q}</div>
                 <p style={{ color: '#6b7280', fontSize: '0.9rem', lineHeight: 1.6 }}>{faq.a}</p>
               </motion.div>
@@ -482,61 +369,43 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* ══ BOTTOM CTA BANNER ══════════════════════════════ */}
+      {/* ══ BOTTOM CTA ────────────────────────────────── */}
       <section style={{ padding: 'clamp(2rem, 5vw, 3rem) clamp(1.25rem, 5vw, 2.5rem)', marginBottom: 'clamp(2rem, 5vw, 3rem)' }}>
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
           transition={{ duration: 0.7 }}
           style={{
-            maxWidth: '900px',
-            margin: '0 auto',
-            background: 'linear-gradient(135deg, #0f0f13, #1e1b4b)',
-            borderRadius: '32px',
-            padding: 'clamp(2rem, 5vw, 3.5rem)',
-            textAlign: 'center',
-            position: 'relative',
-            overflow: 'hidden',
+            maxWidth: '900px', margin: '0 auto',
+            background: 'linear-gradient(135deg, #0f0f13, #1e1b4b)', borderRadius: '32px',
+            padding: 'clamp(2rem, 5vw, 3.5rem)', textAlign: 'center', position: 'relative', overflow: 'hidden',
           }}
         >
           <div aria-hidden style={{
-            position:'absolute', top:'-30%', right:'-10%',
-            width:'300px', height:'300px', borderRadius:'50%',
-            background:'radial-gradient(circle, rgba(99,102,241,0.2) 0%, transparent 70%)',
-            filter:'blur(50px)',
+            position:'absolute', top:'-30%', right:'-10%', width:'300px', height:'300px', borderRadius:'50%',
+            background:'radial-gradient(circle, rgba(249,115,22,0.2) 0%, transparent 70%)', filter:'blur(50px)',
           }}/>
           <h3 style={{ color: '#fff', fontSize: 'clamp(1.3rem, 3vw, 1.8rem)', fontFamily: "'DM Serif Display'", marginBottom: '0.8rem' }}>
             Prefer a direct call?
           </h3>
           <p style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '1.8rem' }}>
-            We're available Monday–Friday, 9am–6pm PST.
+            We're available Monday–Friday, 9am–6pm IST.
           </p>
-          <NavLink to="/contact">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
+          <a href="tel:0731-4032681">
+            <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}
               style={{
-                background: '#fff',
-                color: '#4338ca',
-                border: 'none',
-                padding: '12px 32px',
-                borderRadius: '100px',
-                fontWeight: 700,
-                fontSize: '0.95rem',
-                cursor: 'pointer',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                boxShadow: '0 8px 25px rgba(0,0,0,0.2)',
+                background: '#fff', color: '#ea580c', border: 'none', padding: '12px 32px', borderRadius: '100px',
+                fontWeight: 700, fontSize: '0.95rem', cursor: 'pointer', display: 'inline-flex',
+                alignItems: 'center', gap: '8px', boxShadow: '0 8px 25px rgba(0,0,0,0.2)',
               }}
             >
-              +1 (555) 342-7890
+              0731-4032681
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
             </motion.button>
-          </NavLink>
+          </a>
+          <p style={{ marginTop: '1.5rem', fontSize: '0.8rem', color: 'rgba(255,255,255,0.5)' }}>
+            Visit: <a href="https://www.softspectrum.net" target="_blank" rel="noopener noreferrer" style={{ color: '#f97316', textDecoration: 'none' }}>www.softspectrum.net</a>
+          </p>
         </motion.div>
       </section>
     </div>

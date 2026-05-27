@@ -18,10 +18,14 @@ const Header = () => {
   }, []);
 
   const links = [
-    { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'Contact', path: '/contact' }
-  ];
+  { name: 'Home', path: '/' },
+  { name: 'Services', path: '/services' },
+  { name: 'Portfolio', path: '/portfolio' },
+  { name: 'Blog', path: '/blog' },
+  { name: 'Team', path: '/team' },
+  { name: 'Careers', path: '/careers' },
+  { name: 'Contact', path: '/contact' }
+];
 
   return (
     <motion.header
